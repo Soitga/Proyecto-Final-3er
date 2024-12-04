@@ -226,7 +226,6 @@ $_SESSION['employee_num'] = $employee_info['employee_num'];
 
     const formData = new FormData(this);
     const reservationDate = document.getElementById('reservation_datetime').value;
-    // Convertir la fecha al formato MySQL datetime
     const formattedDate = new Date(reservationDate).toISOString().slice(0, 19).replace('T', ' ');
     formData.set('reservation_date', formattedDate);
     
@@ -248,7 +247,6 @@ $_SESSION['employee_num'] = $employee_info['employee_num'];
         document.getElementById('errorMessage').style.display = 'block';
     });
 });
-    // Inicializar el carrito
     updateCart();
     </script>
 </body>

@@ -118,7 +118,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </nav>
     
-    <!-- Sidebar -->
     <nav class="sidebar">
         <div class="sidebar-nav">
             <ul>

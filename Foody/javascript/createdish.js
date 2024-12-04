@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const addIngredientBtn = document.getElementById('add-ingredient');
     const selectedIngredients = new Set();
 
-    // Manejador para añadir ingredientes
     addIngredientBtn.addEventListener('click', function() {
         const ingredientSelect = document.getElementById('ingredients');
         const selectedIngredient = ingredientSelect.value;
@@ -27,11 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Manejar el envío del formulario
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        // Recoger los datos del formulario
         const dishData = {
             name: document.getElementById('name').value,
             description: document.getElementById('description').value,
@@ -40,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         try {
-            // Enviar datos al archivo PHP
             const response = await fetch('save_dish.php', {
                 method: 'POST',
                 headers: {
@@ -65,14 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Manejar la carga de imágenes
     const imageInput = document.getElementById('image');
     imageInput.addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onload = function(e) {
-                // Aquí puedes añadir código para previsualizar la imagen si lo deseas
             };
             reader.readAsDataURL(file);
         }

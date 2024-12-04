@@ -1,4 +1,3 @@
-/* Variables y Reset */
 :root {
     --primary-color: #2b150e;
     --primary-light: #76544e;
@@ -28,7 +27,6 @@ body {
     min-height: 100vh;
 }
 
-/* Header y Navegación */
 header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     padding: 1rem 0;
@@ -59,12 +57,10 @@ header {
     transform: scale(1.05);
 }
 
-/* Ocultar User Info */
 .user-info {
     display: none;
 }
 
-/* Navbar */
 .navbar ul {
     display: flex;
     gap: 2rem;
@@ -100,14 +96,12 @@ header {
     color: var(--primary-color);
 }
 
-/* Main Content */
 main {
     max-width: 1400px;
     margin: 2rem auto;
     padding: 0 2rem;
 }
 
-/* Menus Section */
 .menus-section, .category-container {
     padding: 2rem;
 }
@@ -122,7 +116,6 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* Grid para menús y productos */
 .menu-grid, .container-products {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -130,7 +123,6 @@ h2 {
     padding: 1rem;
 }
 
-/* Estilos compartidos para tarjetas */
 .menu-card, .card-product {
     background: var(--white);
     border-radius: var(--border-radius);
@@ -152,7 +144,6 @@ h2 {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Menu Header */
 .menu-header {
     display: flex;
     justify-content: space-between;
@@ -176,7 +167,6 @@ h2 {
     font-weight: 500;
 }
 
-/* Card Content */
 .content-card-product {
     display: flex;
     flex-direction: column;
@@ -201,7 +191,6 @@ h2 {
     color: var(--primary-color);
 }
 
-/* Add to Order Button */
 .add-order {
     background-color: var(--primary-color);
     color: var(--white);
@@ -226,7 +215,6 @@ h2 {
     font-size: 1.1rem;
 }
 
-/* Back Button */
 .back-button {
     display: inline-block;
     color: var(--primary-color);
@@ -243,7 +231,6 @@ h2 {
     transform: translateX(-5px);
 }
 
-/* Menu Time */
 .menu-time {
     margin-top: auto;
     padding-top: 1rem;
@@ -256,7 +243,6 @@ h2 {
     font-size: 0.95rem;
 }
 
-/* Error y Notificaciones */
 .error-message, .notification {
     background-color: var(--error-color);
     color: var(--white);
@@ -280,7 +266,6 @@ h2 {
     background-color: var(--success-color);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .menu {
         flex-direction: column;

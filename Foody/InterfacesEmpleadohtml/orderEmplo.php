@@ -14,7 +14,6 @@ function debug_to_console($data) {
 }
 
 try {
-    // Get employee number
     $stmt = $conn->prepare("
         SELECT e.num as emp_num
         FROM employee e
@@ -34,7 +33,6 @@ try {
     
     debug_to_console("Employee Number: " . $employeeNum);
 
-    // First, get the most recent pending order
     $orderQuery = "
         SELECT num 
         FROM orderEmp 

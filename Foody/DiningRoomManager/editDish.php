@@ -7,7 +7,6 @@ if (!$conn) {
     die("Connection Error: " . mysqli_connect_error());
 }
 
-// Obtener datos del plato
 if (isset($_GET['code'])) {
     $code = $_GET['code'];
     
@@ -22,7 +21,6 @@ if (isset($_GET['code'])) {
         exit();
     }
     
-    // Obtener ingredientes del plato
     $stmt = $conn->prepare("SELECT i.num, i.name, di.numberIngred 
                            FROM ingredients i 
                            JOIN dish_ingred di ON i.num = di.ingredients 
@@ -32,12 +30,10 @@ if (isset($_GET['code'])) {
     $dishIngredients = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 }
 
-// Procesar actualización
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     try {
         mysqli_begin_transaction($conn);
         
-        // Actualizar plato
         $stmt = $conn->prepare("UPDATE dish SET 
             name = ?, 
             description = ?, 
@@ -59,7 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
         
         $stmt->execute();
         
-        // Actualizar ingredientes
         $stmt = $conn->prepare("DELETE FROM dish_ingred WHERE dish = ?");
         $stmt->bind_param("s", $_POST['code']);
         $stmt->execute();
@@ -85,7 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
     }
 }
 
-// Obtener categorías y menús para los selects
 $categories = $conn->query("SELECT * FROM category ORDER BY name");
 $menus = $conn->query("SELECT * FROM menu ORDER BY name");
 $ingredients = $conn->query("SELECT * FROM ingredients ORDER BY name");

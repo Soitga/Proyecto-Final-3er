@@ -2,12 +2,11 @@
     --sidebar-width: 250px;
     --header-height: 60px;
     --top-nav-height: 50px;
-    --primary-color: #3c1e15;    /* Cambiado de #343a40 a #3c1e15 */
-    --secondary-color: #59422b;   /* Color más claro para hover */
+    --primary-color: #3c1e15;    
+    --secondary-color: #59422b;  
     --text-light: #ffffff;
 }
 
-/* Reset Bootstrap conflicts */
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +19,6 @@ body {
     padding-top: var(--top-nav-height);
 }
 
-/* Top Navigation */
 .top-nav {
     position: fixed;
     top: 0;
@@ -48,7 +46,6 @@ body {
     text-decoration: none;
 }
 
-/* Sidebar */
 .sidebar {
     position: fixed;
     left: 0;
@@ -86,7 +83,6 @@ body {
     text-align: center;
 }
 
-/* Main Content Area */
 .main-content {
     margin-left: var(--sidebar-width);
     padding: 20px;
@@ -94,7 +90,6 @@ body {
     transition: margin-left 0.3s ease;
 }
 
-/* Header dentro del main content */
 .header {
     margin-bottom: 30px;
 }
@@ -105,7 +100,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Cards */
 .summary-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -125,7 +119,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Table */
 .reports-table {
     background: white;
     border-radius: 8px;
@@ -144,7 +137,6 @@ body {
     font-weight: 600;
 }
 
-/* Hamburger Button */
 .hamburger-btn {
     display: none;
     position: fixed;
@@ -155,7 +147,6 @@ body {
     cursor: pointer;
 }
 
-/* Filter Section */
 .filter-section {
     background: white;
     padding: 20px;
@@ -169,7 +160,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Buttons */
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
@@ -181,13 +171,11 @@ body {
     border-color: var(--secondary-color);
 }
 
-/* Form Controls */
 .form-control:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.2rem rgba(60, 30, 21, 0.25);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
@@ -208,19 +196,56 @@ body {
 
 
 
-.status-PND { /* Pendiente */
+.status-PND { 
     background-color: #ffc107;
     color: black;
     padding: 5px 10px;
     border-radius: 15px;
 }
-.status-ETR { /* Entregado */
+.status-ETR { 
     background-color: #198754;
     color: white;
     padding: 5px 10px;
     border-radius: 15px;
 }
-.status-CNL { /* Cancelado */
+.status-CNL { 
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.order-items {
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-items:hover {
+    white-space: normal;
+    overflow: visible;
+    position: relative;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.status-PND {
+    background-color: #ffc107;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+.status-ETR {
+    background-color: #198754;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+.status-CNL {
     background-color: #dc3545;
     color: white;
     padding: 5px 10px;

@@ -11,7 +11,6 @@ if (!isset($_SESSION['user_num'])) {
 }
 
 try {
-    // Get employee number
     $stmt = $conn->prepare("SELECT num FROM employee WHERE userNum = ?");
     $stmt->bind_param("i", $_SESSION['user_num']);
     $stmt->execute();
@@ -24,13 +23,11 @@ try {
     $employee = $result->fetch_assoc();
     $employeeNum = $employee['num'];
 
-    // Get dish information
     $dishId = $_POST['dish_id'] ?? '';
     if (empty($dishId)) {
         throw new Exception("No dish specified");
     }
 
-    // Get or create pending order
     $orderStmt = $conn->prepare("
         SELECT num 
         FROM orderEmp 
@@ -46,7 +43,6 @@ try {
 
     try {
         if ($orderResult->num_rows === 0) {
-            // Create new order - Note the corrected column names and added required fields
             $createOrderStmt = $conn->prepare("
                 INSERT INTO orderEmp (employee, status, dateOrde, paymentAmount, totalDiscount) 
                 VALUES (?, 'PND', CURRENT_TIMESTAMP(), 0, 0)
@@ -59,7 +55,6 @@ try {
             $orderNum = $order['num'];
         }
 
-        // Get dish price and discount
         $dishStmt = $conn->prepare("
             SELECT price, discountPercentage 
             FROM dish 
@@ -78,7 +73,6 @@ try {
         $discount = $dish['discountPercentage'];
         $discountedPrice = $price * (1 - ($discount/100));
         
-        // Check if dish already exists in order
         $checkStmt = $conn->prepare("
             SELECT numberDishes 
             FROM ord_dish 
@@ -89,7 +83,6 @@ try {
         $checkResult = $checkStmt->get_result();
 
         if ($checkResult->num_rows > 0) {
-            // Update existing dish quantity
             $currentDish = $checkResult->fetch_assoc();
             $newQuantity = $currentDish['numberDishes'] + 1;
             $newTotal = $discountedPrice * $newQuantity;
@@ -105,7 +98,6 @@ try {
             $updateStmt->bind_param("idiss", $newQuantity, $newTotal, $dishDiscount, $orderNum, $dishId);
             $updateStmt->execute();
         } else {
-            // Add new dish to order
             $quantity = 1;
             $totalAmount = $discountedPrice * $quantity;
             $dishDiscount = $price - $discountedPrice;

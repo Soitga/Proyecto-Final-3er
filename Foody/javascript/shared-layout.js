@@ -1,4 +1,3 @@
-// Función para manejar el sidebar
 function initializeSidebar() {
     const sidebar = document.querySelector('.sidebar');
     const hamburgerBtn = document.querySelector('.hamburger-btn');
@@ -13,7 +12,6 @@ function initializeSidebar() {
     
     hamburgerBtn.addEventListener('click', toggleSidebar);
     
-    // Cerrar sidebar al hacer clic fuera de él en dispositivos móviles
     document.addEventListener('click', (e) => {
         const isMobile = window.innerWidth < 1024;
         const clickedOutsideSidebar = !sidebar.contains(e.target);
@@ -24,7 +22,6 @@ function initializeSidebar() {
         }
     });
     
-    // Manejar cambios de tamaño de ventana
     window.addEventListener('resize', () => {
         if (window.innerWidth >= 1024) {
             sidebar.classList.remove('open');
@@ -33,5 +30,4 @@ function initializeSidebar() {
     });
 }
 
-// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', initializeSidebar);

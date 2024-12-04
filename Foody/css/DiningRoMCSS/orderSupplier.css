@@ -1,4 +1,3 @@
-/* Variables y Reset */
 :root {
     --primary-color: #3c1e15;
     --primary-light: #59422b;
@@ -28,7 +27,6 @@ body {
     padding-left: 250px;
 }
 
-/* Header */
 header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     padding: 1.2rem 0;
@@ -76,7 +74,6 @@ header {
     transform: translateY(-2px);
 }
 
-/* Sidebar */
 .sidebar {
     width: 250px;
     position: fixed;
@@ -112,7 +109,6 @@ header {
     margin-right: 10px;
 }
 
-/* Contenido principal */
 main {
     padding-top: 80px;
     max-width: 1000px;
@@ -128,7 +124,6 @@ form {
     margin: 20px;
 }
 
-/* Estilos de formulario */
 label {
     display: block;
     font-weight: 600;
@@ -154,7 +149,6 @@ select:focus, input[type="date"]:focus {
     outline: none;
 }
 
-/* Contenedor de ingredientes */
 #ingredients-container {
     background-color: var(--gray-light);
     padding: 1.5rem;
@@ -198,7 +192,6 @@ input[type="number"] {
     font-size: 0.9rem;
 }
 
-/* Botón de envío */
 button[type="submit"] {
     background-color: var(--primary-color);
     color: var(--white);
@@ -219,7 +212,6 @@ button[type="submit"]:hover {
     box-shadow: var(--shadow);
 }
 
-/* Mensaje de error */
 .error {
     background-color: #f8d7da;
     color: #721c24;
@@ -229,7 +221,6 @@ button[type="submit"]:hover {
     border: 1px solid #f5c6cb;
 }
 
-/* Hamburger button */
 .hamburger-btn {
     display: none;
     position: fixed;
@@ -247,7 +238,6 @@ button[type="submit"]:hover {
     transition: 0.4s;
 }
 
-/* Scrollbar personalizado */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -265,7 +255,6 @@ button[type="submit"]:hover {
     background: var(--primary-color);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     body {
         padding-left: 0;
@@ -312,7 +301,6 @@ button[type="submit"]:hover {
     }
 }
 
-/* Animaciones */
 @keyframes fadeIn {
     from {
         opacity: 0;

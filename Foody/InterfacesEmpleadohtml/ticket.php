@@ -9,7 +9,6 @@ if (!isset($_SESSION['user_num'])) {
 }
 
 try {
-    // Get employee number
     $stmt = $conn->prepare("
         SELECT e.num as emp_num, e.firstName, e.middleName, e.lastName
         FROM employee e
@@ -26,7 +25,6 @@ try {
     
     $employee = $result->fetch_assoc();
     
-    // Obtener el ticket_id de los parámetros GET o de la sesión
     $ticket_id = $_GET['ticket_id'] ?? $_SESSION['last_ticket_num'] ?? null;
     
     if (!$ticket_id) {
@@ -54,7 +52,6 @@ try {
        throw new Exception("Ticket not found");
     }
     
-    // Get order items
     $itemsStmt = $conn->prepare("
         SELECT
             d.name,
@@ -72,7 +69,6 @@ try {
     $itemsStmt->execute();
     $items = $itemsStmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-    // Calcular el total
     $total = 0;
     foreach ($items as $item) {
         $total += $item['subtotal'] - $item['dishDiscount'];

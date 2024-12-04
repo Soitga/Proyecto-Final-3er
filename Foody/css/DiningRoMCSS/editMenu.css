@@ -1,4 +1,4 @@
-/* Reset y estilos base */
+
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +15,6 @@ body {
     padding-left: 250px;
 }
 
-/* Header */
 header {
     background: linear-gradient(135deg, #2b150e 0%, #76544e 100%);
     padding: 1.2rem 0;
@@ -63,7 +62,6 @@ header {
     transform: translateY(-2px);
 }
 
-/* Sidebar */
 .sidebar {
     width: 250px;
     position: fixed;
@@ -103,7 +101,6 @@ header {
     font-size: 1.1em;
 }
 
-/* Contenedor principal del formulario */
 .edit-menu-container {
     background-color: #fff;
     padding: 2rem;
@@ -122,7 +119,6 @@ header {
     border-bottom: 2px solid #f4e4cd;
 }
 
-/* Estilos de formulario */
 .form-group {
     margin-bottom: 25px;
 }
@@ -159,7 +155,6 @@ textarea {
     resize: vertical;
 }
 
-/* Sección de comedores */
 .dining-rooms-display {
     background-color: #f9f9f9;
     padding: 20px;
@@ -187,7 +182,6 @@ textarea {
     border-left: 3px solid #3c1e15;
 }
 
-/* Sección de platos */
 .current-dishes {
     background-color: #f9f9f9;
     padding: 20px;
@@ -232,7 +226,6 @@ textarea {
     color: white;
 }
 
-/* Botones */
 .buttons {
     display: flex;
     justify-content: center;
@@ -275,7 +268,6 @@ textarea {
     background-color: #c82333;
 }
 
-/* Mensaje de éxito/error */
 .message {
     padding: 15px;
     margin-bottom: 20px;
@@ -286,7 +278,6 @@ textarea {
     text-align: center;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     body {
         padding-left: 0;

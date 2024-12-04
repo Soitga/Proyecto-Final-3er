@@ -47,7 +47,6 @@ header {
     font-size: 16px;
 }
 
-/* Contenedor principal */
 .dishes-container {
     background-color: #fff;
     padding: 30px;
@@ -64,7 +63,6 @@ header {
     color: #2b150e;
 }
 
-/* Estilos de la tabla */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -87,7 +85,6 @@ tr:hover {
     background-color: #f9f1e7;
 }
 
-/* Botones */
 .btn {
     padding: 8px 16px;
     border: none;
@@ -121,7 +118,6 @@ tr:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Modal */
 .modal {
     background-color: rgba(0,0,0,0.5);
 }
@@ -144,7 +140,6 @@ tr:hover {
     color: #2b150e;
 }
 
-/* Formulario dentro del modal */
 .form-group {
     margin-bottom: 20px;
 }
@@ -166,7 +161,6 @@ tr:hover {
     margin-top: 5px;
 }
 
-/* Estilos para los ingredientes */
 .ingredient-tag {
     display: inline-flex;
     align-items: center;
@@ -193,7 +187,6 @@ tr:hover {
     padding: 0 5px;
 }
 
-/* Mensajes */
 .message {
     padding: 15px;
     margin-bottom: 20px;
@@ -203,7 +196,6 @@ tr:hover {
     border: 1px solid #c3e6cb;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .dishes-container {
         margin: 20px;
@@ -220,7 +212,6 @@ tr:hover {
     }
 }
 
-/* Sidebar Styles */
 .sidebar {
     position: fixed;
     left: 0;
@@ -276,14 +267,12 @@ tr:hover {
     text-align: center;
 }
 
-/* Ajuste del contenedor principal */
 .dishes-container {
     margin-left: 250px;
     padding: 2rem;
     max-width: calc(100% - 250px);
 }
 
-/* Hamburger Button */
 .hamburger-btn {
     display: none;
     position: fixed;
@@ -336,13 +325,11 @@ tr:hover {
     }
 }
 
-/* Estilos generales para enlaces */
 a {
     text-decoration: none;
     color: inherit;
 }
 
-/* Estilos para el sidebar y sus enlaces */
 .sidebar {
     background-color: #3c1e15;
 }
@@ -357,19 +344,16 @@ a {
     color: white !important;
 }
 
-/* Estilos para la navegación superior */
 .navbar ul li a {
     color: white !important;
     text-decoration: none;
 }
 
-/* Estilos para el logo */
 .logo {
     color: white !important;
     text-decoration: none;
 }
 
-/* Estilos para los botones de acciones */
 .btn {
     border: none;
     border-radius: 5px;
@@ -414,7 +398,6 @@ a {
     text-decoration: none;
 }
 
-/* Color de texto para la tabla */
 table th {
     color: white;
 }
@@ -423,13 +406,11 @@ table td {
     color: #2b150e;
 }
 
-/* Estilos para el modal */
 .modal-content h2,
 .modal-content label {
     color: #2b150e;
 }
 
-/* Asegurar que los botones del modal mantengan el estilo */
 .modal-content .btn {
     color: white !important;
     text-decoration: none;
@@ -468,7 +449,7 @@ table td {
 .modal {
     display: none;
     position: fixed;
-    z-index: 2000; /* Mayor que el sidebar */
+    z-index: 2000; 
     left: 0;
     top: 0;
     width: 100%;
@@ -505,7 +486,6 @@ table td {
     color: #59422b;
 }
 
-/* Estilos para los campos del formulario en el modal */
 .modal .form-group {
     margin-bottom: 20px;
 }
@@ -532,7 +512,6 @@ table td {
     resize: vertical;
 }
 
-/* Estilos para los ingredientes seleccionados */
 .modal .ingredient-tag {
     display: inline-flex;
     align-items: center;
@@ -561,7 +540,6 @@ table td {
     margin-left: 8px;
 }
 
-/* Asegurar que el modal esté por encima del sidebar */
 .modal {
     z-index: 2000;
 }

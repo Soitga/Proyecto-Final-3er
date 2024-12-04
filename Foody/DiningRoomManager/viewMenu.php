@@ -8,14 +8,12 @@ if (!$conn) {
     die("Connection error: " . mysqli_connect_error());
 }
 
-// Handle menu deletion
 if (isset($_POST['delete_menu'])) {
     try {
         mysqli_begin_transaction($conn);
         
         $menuCode = $_POST['menu_code'];
         
-        // 1. First get all dishes associated with this menu
         $stmt = $conn->prepare("SELECT code FROM dish WHERE menu = ?");
         $stmt->bind_param("s", $menuCode);
         $stmt->execute();
@@ -25,7 +23,6 @@ if (isset($_POST['delete_menu'])) {
             $dishCodes[] = $row['code'];
         }
         
-        // 2. Delete from dish_ingred for all associated dishes
         if (!empty($dishCodes)) {
             $placeholders = str_repeat('?,', count($dishCodes) - 1) . '?';
             $stmt = $conn->prepare("DELETE FROM dish_ingred WHERE dish IN ($placeholders)");
@@ -33,7 +30,6 @@ if (isset($_POST['delete_menu'])) {
             $stmt->execute();
         }
         
-        // 3. Delete from ord_dish for all associated dishes
         if (!empty($dishCodes)) {
             $placeholders = str_repeat('?,', count($dishCodes) - 1) . '?';
             $stmt = $conn->prepare("DELETE FROM ord_dish WHERE dish IN ($placeholders)");
@@ -41,17 +37,14 @@ if (isset($_POST['delete_menu'])) {
             $stmt->execute();
         }
         
-        // 4. Delete from dining_menu
         $stmt = $conn->prepare("DELETE FROM dining_menu WHERE menu = ?");
         $stmt->bind_param("s", $menuCode);
         $stmt->execute();
         
-        // 5. Delete from dish
         $stmt = $conn->prepare("DELETE FROM dish WHERE menu = ?");
         $stmt->bind_param("s", $menuCode);
         $stmt->execute();
         
-        // 6. Finally delete from menu
         $stmt = $conn->prepare("DELETE FROM menu WHERE code = ?");
         $stmt->bind_param("s", $menuCode);
         $stmt->execute();
@@ -134,15 +127,12 @@ $result = $conn->query($query);
         
         for ($i = 0; $i < count($dishes); $i++) {
             echo '<div class="dish-item">';
-            // Verificar y mostrar el nombre del plato
             echo '<strong>' . htmlspecialchars($dishes[$i] ?? 'N/A') . '</strong><br>';
             
-            // Verificar y mostrar la descripción
             if (isset($descriptions[$i])) {
                 echo htmlspecialchars($descriptions[$i]) . '<br>';
             }
             
-            // Verificar y mostrar el precio
             if (isset($prices[$i])) {
                 echo '<span class="dish-price">$' . htmlspecialchars($prices[$i]) . '</span>';
             }

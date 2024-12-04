@@ -10,7 +10,6 @@ if (!isset($_SESSION['user_num'])) {
 }
 
 try {
-    // Get employee number and current order
     $stmt = $conn->prepare("
         SELECT e.num as emp_num, 
                (SELECT num FROM orderEmp WHERE employee = e.num AND status = 'PND' ORDER BY num DESC LIMIT 1) as order_num
@@ -38,7 +37,6 @@ try {
         throw new Exception("Invalid dish ID");
     }
 
-    // Si no hay orden activa y no es una acción de eliminar, crear nueva orden
     if (!$orderNum && $action !== 'remove') {
         $createOrderStmt = $conn->prepare("
             INSERT INTO orderEmp (employee, status, date) 
@@ -65,7 +63,6 @@ try {
                     ");
                     $stmt->bind_param("is", $orderNum, $dishId);
                 } else {
-                    // Get current dish information
                     $priceStmt = $conn->prepare("
                         SELECT price, discountPercentage 
                         FROM dish 
@@ -97,7 +94,6 @@ try {
                 break;
 
             case 'remove':
-                // Primero verificamos si hay un ticket asociado
                 $checkTicketStmt = $conn->prepare("
                     SELECT 1 FROM ticket WHERE orderEmp = ? LIMIT 1
                 ");
@@ -106,7 +102,6 @@ try {
                 $hasTicket = $checkTicketStmt->get_result()->num_rows > 0;
 
                 if ($hasTicket) {
-                    // Si hay ticket, solo marcamos el platillo como cancelado o lo ocultamos
                     $stmt = $conn->prepare("
                         UPDATE ord_dish 
                         SET numberDishes = 0,
@@ -116,7 +111,6 @@ try {
                     ");
                     $stmt->bind_param("is", $orderNum, $dishId);
                 } else {
-                    // Si no hay ticket, podemos eliminar normalmente
                     $stmt = $conn->prepare("
                         DELETE FROM ord_dish 
                         WHERE orderEmp = ? AND dish = ?
@@ -133,7 +127,6 @@ try {
             throw new Exception("Failed to update cart");
         }
 
-        // Get updated cart total
         $totalStmt = $conn->prepare("
             SELECT COALESCE(SUM(amount - IFNULL(dishDiscount, 0)), 0) as total 
             FROM ord_dish 
@@ -143,7 +136,6 @@ try {
         $totalStmt->execute();
         $total = $totalStmt->get_result()->fetch_assoc()['total'];
 
-        // Check if cart is empty and no ticket exists
         if ($total == 0) {
             $checkTicketStmt = $conn->prepare("
                 SELECT 1 FROM ticket WHERE orderEmp = ? LIMIT 1
@@ -152,7 +144,6 @@ try {
             $checkTicketStmt->execute();
             
             if ($checkTicketStmt->get_result()->num_rows === 0) {
-                // Solo eliminamos la orden si no hay ticket
                 $deleteOrderStmt = $conn->prepare("
                     DELETE FROM orderEmp 
                     WHERE num = ? AND status = 'PND'

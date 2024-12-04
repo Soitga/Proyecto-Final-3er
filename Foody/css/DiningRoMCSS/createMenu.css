@@ -1,4 +1,4 @@
-/* Reset básico */
+
 * {
     padding: 0;
     margin: 0;
@@ -7,22 +7,20 @@
     list-style: none;
 }
 
-/* Estilos base */
 body {
     font-family: 'Arial', Helvetica, sans-serif;
     line-height: 1.6;
     background-color: #f4e4cd;
     min-height: 100vh;
-    padding-left: 250px; /* Espacio para el sidebar */
+    padding-left: 250px; 
 }
 
-/* Header y navegación */
 header {
     background: linear-gradient(135deg, #2b150e 0%, #76544e 100%);
     padding: 1.2rem 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-    width: calc(100% - 250px); /* Ancho total menos el sidebar */
+    width: calc(100% - 250px); 
     position: fixed;
     top: 0;
     right: 0;
@@ -63,7 +61,6 @@ header {
     background-color: #59422b;
 }
 
-/* Sidebar */
 .sidebar {
     width: 250px;
     position: fixed;
@@ -98,7 +95,6 @@ header {
     margin-right: 10px;
 }
 
-/* Contenedor principal del formulario */
 .create-menu-container {
     background-color: #fff;
     padding: 30px;
@@ -115,7 +111,6 @@ header {
     color: #3c1e15;
 }
 
-/* Estilos del formulario */
 .form-group {
     margin-bottom: 25px;
 }
@@ -147,13 +142,11 @@ select:focus {
     box-shadow: 0 0 5px rgba(60, 30, 21, 0.2);
 }
 
-/* Estilos para select múltiple */
 #dining-rooms-select {
     height: 150px;
     padding: 10px;
 }
 
-/* Botones */
 .btn-create {
     background-color: #3c1e15;
     color: white;
@@ -194,7 +187,6 @@ select:focus {
     transform: translateY(-2px);
 }
 
-/* Mensaje de error/éxito */
 .message {
     padding: 15px;
     margin-bottom: 20px;
@@ -204,7 +196,6 @@ select:focus {
     border: 1px solid #f5c6cb;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     body {
         padding-left: 0;

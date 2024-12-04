@@ -71,44 +71,6 @@ $orders = getOrders($filterStartDate, $filterEndDate);
     <link rel="stylesheet" href="../css/static/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/9c68e1ecda.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/DiningRoMCSS/report.css">
-    <style>
-        .status-PND {
-            background-color: #ffc107;
-            color: black;
-            padding: 5px 10px;
-            border-radius: 15px;
-        }
-        .status-ETR {
-            background-color: #198754;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-        }
-        .status-CNL {
-            background-color: #dc3545;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-        }
-        
-        .order-items {
-            max-width: 300px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .order-items:hover {
-            white-space: normal;
-            overflow: visible;
-            position: relative;
-            background-color: white;
-            z-index: 1;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            padding: 5px;
-            border-radius: 4px;
-        }
-    </style>
 </head>
 <body>
     <nav class="top-nav">

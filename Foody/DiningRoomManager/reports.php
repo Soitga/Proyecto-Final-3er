@@ -58,7 +58,6 @@ $reports = getReportInfo($filterStartDate, $filterEndDate);
             <a href="../index.php"><i class="fas fa-sign-out-alt"></i> Log off</a>
         </div>
     </nav>
-    <!-- Sidebar -->
     <nav class="sidebar">
         <div class="sidebar-nav">
             <ul>

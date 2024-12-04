@@ -7,7 +7,6 @@ $resultUsers = mysqli_query($conn, $queryUsers);
 $rowUsers = mysqli_fetch_assoc($resultUsers);
 $totalUsers = $rowUsers['total_users'];
 
-// Consulta para contar fábricas
 $queryFactories = "SELECT COUNT(*) as total_factories FROM factory";
 $resultFactories = mysqli_query($conn, $queryFactories);
 $rowFactories = mysqli_fetch_assoc($resultFactories);
