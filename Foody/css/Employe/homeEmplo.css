@@ -1,0 +1,131 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4e4cd;
+    color: #cfb5b5;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(to right, #2b150e, #76544e);
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    color: #ffeeee;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.navbar ul li a {
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+}
+
+.welcome-section {
+    background-color: #88756b;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.welcome-content {
+    max-width: 800px;
+    margin: 0 auto;
+    color: white;
+}
+
+.welcome-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ffeeee;
+}
+
+.cards-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    color: #2b150e;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.card-button {
+    display: inline-block;
+    background: linear-gradient(to right, #2b150e, #76544e);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+}
+
+.card-button:hover {
+    transform: scale(1.05);
+}
+
+.order-now-card {
+    background: linear-gradient(135deg, #3c1e15, #76544e);
+    color: white;
+}
+
+.order-now-card h3, .order-now-card p {
+    color: white;
+}
+
+.order-now-card .card-button {
+    background: white;
+    color: #2b150e;
+}

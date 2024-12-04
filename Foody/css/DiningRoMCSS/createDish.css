@@ -1,0 +1,324 @@
+/* Reset básico */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Estilos base */
+body {
+    font-family: 'Arial', Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4e4cd;
+}
+
+/* Header y navegación */
+header {
+    background: linear-gradient(135deg, #2b150e 0%, #76544e 100%);
+    padding: 1.2rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 25px;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.navbar ul li a:hover {
+    background-color: #6e4e39;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #3c1e15;
+    padding-top: 20px;
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar .logo {
+    color: white;
+    font-size: 24px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.sidebar-nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li a {
+    padding: 15px;
+    color: #985c5c;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar-nav li a:hover {
+    background-color: #644b4b;
+}
+
+.sidebar-nav .fas {
+    width: 30px;
+    font-size: 1.1em;
+}
+
+/* Iconos de sidebar */
+.fa-users { color: #774c20; }
+.fa-utensils { color: #969044; }
+.fa-book { color: #e5d2b8; }
+.fa-truck { color: #9b3e1d; }
+.fa-store { color: #654d06ef; }
+.fa-sign-out-alt { color: #dc3545; }
+
+/* Hamburger button */
+.hamburger-btn {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.hamburger-btn div {
+    width: 30px;
+    height: 3px;
+    background-color: #fefafa;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.hamburger-btn.active {
+    left: 270px;
+}
+
+/* Main content */
+.main-content {
+    margin-left: 0;
+}
+
+/* Formulario de creación de plato */
+.create-dish-container {
+    background-color: #fff;
+    padding: 30px;
+    max-width: 700px;
+    margin: 40px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-dish-container h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #3c1e15;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* Estilos de inputs */
+input[type="text"],
+input[type="number"],
+textarea,
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus,
+input[type="file"]:focus {
+    border-color: #3c1e15;
+    outline: none;
+}
+
+/* Botones */
+#add-ingredient {
+    background-color: #3c1e15;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+#add-ingredient:hover {
+    background-color: #59422b;
+}
+
+button[type="submit"] {
+    background-color: #3c1e15;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #59422b;
+    transform: scale(1.05);
+}
+
+/* Lista de ingredientes */
+#ingredients-list {
+    margin-top: 15px;
+    padding-left: 20px;
+    opacity: 0;
+}
+
+#ingredients-list li {
+    background-color: #eee;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+}
+
+#ingredients-list li button {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#ingredients-list li button:hover {
+    background-color: #b71c1c;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Estilos para los botones edit */
+.btn-edit {
+    background-color: #3c1e15;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn-edit a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-edit:hover {
+    background-color: #59422b;
+}
+
+/* Estilos para los enlaces de la barra lateral */
+.sidebar-nav li a {
+    padding: 15px;
+    color: white;
+    display: block;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.sidebar-nav li a:hover {
+    background-color: #644b4b;
+    color: white;
+}
+
+/* Estilos para el logo */
+.logo {
+    color: white;
+    text-decoration: none;
+}
+
+/* Estilos para la navegación superior */
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #6e4e39;
+    color: white;
+}

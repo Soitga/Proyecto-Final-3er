@@ -1,0 +1,339 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4e4cd;
+    min-height: 100vh;
+    padding-left: 250px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #2b150e 0%, #76544e 100%);
+    padding: 1.2rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - 250px);
+    z-index: 100;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar ul {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar a {
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #3c1e15;
+    padding-top: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.sidebar .logo {
+    color: white;
+    font-size: 24px;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.sidebar-nav ul li a {
+    padding: 15px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: #59422b;
+    padding-left: 25px;
+}
+
+.sidebar-nav .fas {
+    width: 25px;
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+/* Contenedor principal del formulario */
+.edit-menu-container {
+    background-color: #fff;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 100px auto 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.edit-menu-container h2 {
+    color: #2b150e;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f4e4cd;
+}
+
+/* Estilos de formulario */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #3c1e15;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #3c1e15;
+    box-shadow: 0 0 5px rgba(60, 30, 21, 0.2);
+    outline: none;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Sección de comedores */
+.dining-rooms-display {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+}
+
+.dining-rooms-display h3 {
+    color: #3c1e15;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.dining-room-item {
+    background-color: #fff;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    margin: 8px 0;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+}
+
+.dining-room-item:hover {
+    transform: translateX(5px);
+    border-left: 3px solid #3c1e15;
+}
+
+/* Sección de platos */
+.current-dishes {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+}
+
+.current-dishes h3 {
+    color: #3c1e15;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.dish-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.dish-item:hover {
+    transform: translateX(5px);
+    border-left: 3px solid #3c1e15;
+}
+
+.remove-dish {
+    color: #dc3545;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.remove-dish:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-update {
+    background-color: #3c1e15;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-update:hover {
+    background-color: #59422b;
+}
+
+.btn-cancel:hover {
+    background-color: #c82333;
+}
+
+/* Mensaje de éxito/error */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding-left: 0;
+    }
+
+    header {
+        width: 100%;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .hamburger-btn {
+        display: block;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+    }
+
+    .hamburger-btn div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        transition: 0.4s;
+    }
+
+    .hamburger-btn.active {
+        left: 270px;
+    }
+
+    .edit-menu-container {
+        margin: 80px 20px;
+        padding: 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

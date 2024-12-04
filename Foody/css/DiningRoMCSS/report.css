@@ -1,0 +1,246 @@
+:root {
+    --sidebar-width: 250px;
+    --header-height: 60px;
+    --top-nav-height: 50px;
+    --primary-color: #3c1e15;    /* Cambiado de #343a40 a #3c1e15 */
+    --secondary-color: #59422b;   /* Color más claro para hover */
+    --text-light: #ffffff;
+}
+
+/* Reset Bootstrap conflicts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    padding-top: var(--top-nav-height);
+}
+
+/* Top Navigation */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--top-nav-height);
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1100;
+}
+
+.top-nav .brand a {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.top-nav .user-menu a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: var(--top-nav-height);
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--top-nav-height));
+    background-color: var(--primary-color);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sidebar-nav li a:hover {
+    background-color: var(--secondary-color);
+}
+
+.sidebar-nav i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 20px;
+    min-height: calc(100vh - var(--top-nav-height));
+    transition: margin-left 0.3s ease;
+}
+
+/* Header dentro del main content */
+.header {
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+/* Cards */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(60, 30, 21, 0.1);
+}
+
+.summary-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Table */
+.reports-table {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(60, 30, 21, 0.1);
+    overflow-x: auto;
+}
+
+.reports-table table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.reports-table th {
+    background-color: rgba(60, 30, 21, 0.05);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1200;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+/* Filter Section */
+.filter-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(60, 30, 21, 0.1);
+}
+
+.filter-section .form-label {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Form Controls */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(60, 30, 21, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+}
+
+
+
+.status-PND { /* Pendiente */
+    background-color: #ffc107;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+.status-ETR { /* Entregado */
+    background-color: #198754;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+.status-CNL { /* Cancelado */
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+.order-items {
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-items:hover {
+    white-space: normal;
+    overflow: visible;
+    position: relative;
+    background-color: white;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 5px;
+    border-radius: 4px;
+}

@@ -1,0 +1,571 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: 'Arial', Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4e4cd;
+}
+
+header {
+    background: linear-gradient(135deg, #2b150e 0%, #76544e 100%);
+    padding: 1.2rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    font-size: 16px;
+}
+
+/* Contenedor principal */
+.dishes-container {
+    background-color: #fff;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.dishes-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2b150e;
+}
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid white;
+}
+
+th {
+    background-color: #3c1e15;
+    color: white;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f9f1e7;
+}
+
+/* Botones */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.btn-edit {
+    background-color: #3c1e15;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-add {
+    background-color: #59422b;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Modal */
+.modal {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    max-width: 600px;
+    margin: 5% auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #2b150e;
+}
+
+/* Formulario dentro del modal */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #2b150e;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* Estilos para los ingredientes */
+.ingredient-tag {
+    display: inline-flex;
+    align-items: center;
+    background: #f4e4cd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.ingredient-tag .quantity-input {
+    width: 60px;
+    padding: 4px;
+    margin: 0 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.remove-ingredient {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 5px;
+}
+
+/* Mensajes */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dishes-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .modal-content {
+        margin: 10% 20px;
+    }
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #3c1e15;
+    padding: 2rem 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.sidebar .logo {
+    text-align: center;
+    display: block;
+    margin-bottom: 2rem;
+    font-size: 24px;
+    color: #2b150e;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 0 1.5rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: #495057;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    gap: 0.75rem;
+}
+
+.sidebar-nav a:hover {
+    background-color: #f4e4cd;
+    color: #2b150e;
+}
+
+.sidebar-nav i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Ajuste del contenedor principal */
+.dishes-container {
+    margin-left: 250px;
+    padding: 2rem;
+    max-width: calc(100% - 250px);
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger-btn div {
+    width: 25px;
+    height: 3px;
+    background-color: #2b150e;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .dishes-container {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .hamburger-btn {
+        display: block;
+    }
+
+    .hamburger-btn.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger-btn.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-btn.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Estilos generales para enlaces */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Estilos para el sidebar y sus enlaces */
+.sidebar {
+    background-color: #3c1e15;
+}
+
+.sidebar-nav a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.sidebar-nav a:hover {
+    background-color: #59422b;
+    color: white !important;
+}
+
+/* Estilos para la navegación superior */
+.navbar ul li a {
+    color: white !important;
+    text-decoration: none;
+}
+
+/* Estilos para el logo */
+.logo {
+    color: white !important;
+    text-decoration: none;
+}
+
+/* Estilos para los botones de acciones */
+.btn {
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.btn-edit {
+    background-color: #3c1e15 !important;
+    color: white !important;
+}
+
+.btn-edit:hover {
+    background-color: #59422b !important;
+}
+
+.btn-delete {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.btn-delete:hover {
+    background-color: #c82333 !important;
+}
+
+.btn-add {
+    background-color: #3c1e15 !important;
+    color: white !important;
+    padding: 12px 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-add:hover {
+    background-color: #59422b !important;
+    text-decoration: none;
+}
+
+/* Color de texto para la tabla */
+table th {
+    color: white;
+}
+
+table td {
+    color: #2b150e;
+}
+
+/* Estilos para el modal */
+.modal-content h2,
+.modal-content label {
+    color: #2b150e;
+}
+
+/* Asegurar que los botones del modal mantengan el estilo */
+.modal-content .btn {
+    color: white !important;
+    text-decoration: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    border-radius: 5px;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+* Estilos del Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000; /* Mayor que el sidebar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #3c1e15;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #59422b;
+}
+
+/* Estilos para los campos del formulario en el modal */
+.modal .form-group {
+    margin-bottom: 20px;
+}
+
+.modal .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #3c1e15;
+    font-weight: 600;
+}
+
+.modal .form-group input,
+.modal .form-group select,
+.modal .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.modal .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Estilos para los ingredientes seleccionados */
+.modal .ingredient-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f4e4cd;
+    padding: 8px 12px;
+    margin: 4px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.modal .ingredient-tag input[type="number"] {
+    width: 60px;
+    margin: 0 8px;
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.modal .ingredient-tag button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 4px;
+    margin-left: 8px;
+}
+
+/* Asegurar que el modal esté por encima del sidebar */
+.modal {
+    z-index: 2000;
+}
+
+.sidebar {
+    z-index: 1000;
+}

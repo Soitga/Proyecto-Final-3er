@@ -1,0 +1,110 @@
+:root {
+  --brown: #774c20;
+  --olive: #969044;
+  --vanilla: #e5d2b8;
+  --palmoil: #5e2611;
+  --midnight: #3d3211ef;
+  --text: "Quicksand", sans-serif;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body {
+  font-family: var(--text);
+  background-color: var(--midnight);
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 95%;
+}
+.img-form {
+  background-image: url('../css/imagenes/bg.jpg');
+  background-position: center center;
+  background-size: cover;
+  height: 400px;
+  flex: 0 0 calc(60%);
+  position: relative;
+} 
+.img-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+@media(min-width: 768px) {
+  .img-form {
+      background-position: left;
+      height: auto;
+  }
+}
+@media(min-width: 1200px) {
+  .img-form {
+      background-position: center;
+      
+  }
+}
+
+@media(min-width: 768px) {
+  .container-form {
+      display: flex;
+  }
+}
+.form {
+  padding: 50px;
+  background-color: var(--palmoil);
+}
+.text-form h2,
+.input label,
+.forgotten-passw a,
+.text-form p {
+  color: var(--vanilla);
+}
+.text-form h2 {
+  font-size: 40px;
+  text-align: center;
+}
+.text-form p {
+  font-size: 18px;
+  text-align: center;
+}
+.input label {
+  display: block;
+  font-size: 18px;
+  font-weight: var(--midnight);
+  margin: 15px 0;
+}
+.forgotten-passw a {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 16px;
+}
+.input input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 5px;
+  outline: none;
+}
+.input input[type="submit"] {
+  background-color: var(--olive);
+  color: var(--vanilla);
+  font-weight: center;
+  font-size: 15px;
+  border: none;
+  margin-top: 20px;
+  transition: background-color.3s ease-in-out
+}
+.input input[type="submit"]:hover {
+  color: pointer;
+  background-color: var(--brown);
+}

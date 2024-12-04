@@ -1,0 +1,14 @@
+2024-11-25 09:22:11: Starting order process
+2024-11-25 09:22:11: Employee number: 3
+2024-11-25 09:22:11: Dishes received: Array
+(
+    [Torta] => 1
+    [Enchi] => 1
+    [FRUTI] => 0
+    [Leche] => 0
+    [Tamal] => 0
+)
+
+2024-11-25 09:22:11: Transaction started
+2024-11-25 09:22:11: Query for order: INSERT INTO orderEmp (employee, dateOrde, status) VALUES (?, NOW(), 'completed')
+2024-11-25 09:22:11: Error occurred: Data too long for column 'status' at row 1
